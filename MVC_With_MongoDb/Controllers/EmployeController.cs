@@ -18,8 +18,9 @@ namespace MVC_With_MongoDb.Controllers
     {
         MongoServer server = MongoServer.Create(ConfigurationManager.AppSettings["connectionString"]);
 
-        public ActionResult Index()
+        public ActionResult Index(string Message="")
         {
+            TempData["Message"] = Message;
             List<EmployesModel> Emp = new List<EmployesModel>();
             MongoDatabase myDB = server.GetDatabase("Employe");
             MongoCollection<EmployesModel> employes = myDB.GetCollection<EmployesModel>("employes");
@@ -70,8 +71,9 @@ namespace MVC_With_MongoDb.Controllers
                 _Emp.email = Emp.email;
                 _Emp.address = Emp.address;
                 _Emp.phon = Emp.phon;
-                employes.Save(_Emp); 
-                return RedirectToAction("Index");
+                employes.Save(_Emp);
+                string Message = "Employee Inserted Successfully.";
+                return RedirectToAction("Index",new{Message=Message});
             }
             catch
             {
@@ -110,7 +112,8 @@ namespace MVC_With_MongoDb.Controllers
                 _Emp.address = Model.address;
                 _Emp.phon = Model.phon;
                 collection.Save(_Emp);
-                return RedirectToAction("Index");
+                string Message = "Employee Updated Successfully.";
+                return RedirectToAction("Index",new{Message=Message});
             }
             catch
             {
@@ -124,7 +127,8 @@ namespace MVC_With_MongoDb.Controllers
             var collection = myDB.GetCollection<EmployesModel>("employes");
             var query = Query<EmployesModel>.EQ(e => e._id,ObjectId.Parse(id));
             collection.Remove(query);
-            return RedirectToAction("Index");
+            string Message = "Employee Deleted Successfully.";
+            return RedirectToAction("Index",new{Message=Message});
         }
 
     }

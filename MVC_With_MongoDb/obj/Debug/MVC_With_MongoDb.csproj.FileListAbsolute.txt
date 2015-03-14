@@ -54,6 +54,6 @@ D:\Trainee\MVC_With_MongoDb\MVC_With_MongoDb\bin\Microsoft.Owin.Security.OAuth.x
 D:\Trainee\MVC_With_MongoDb\MVC_With_MongoDb\bin\Microsoft.Owin.Security.Google.xml
 D:\Trainee\MVC_With_MongoDb\MVC_With_MongoDb\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Trainee\MVC_With_MongoDb\MVC_With_MongoDb\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Trainee\MVC_With_MongoDb\MVC_With_MongoDb\obj\Debug\MVC_With_MongoDb.csprojResolveAssemblyReference.cache
 D:\Trainee\MVC_With_MongoDb\MVC_With_MongoDb\obj\Debug\MVC_With_MongoDb.dll
 D:\Trainee\MVC_With_MongoDb\MVC_With_MongoDb\obj\Debug\MVC_With_MongoDb.pdb
-D:\Trainee\MVC_With_MongoDb\MVC_With_MongoDb\obj\Debug\MVC_With_MongoDb.csprojResolveAssemblyReference.cache
