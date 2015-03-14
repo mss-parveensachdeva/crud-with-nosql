@@ -1,0 +1,84 @@
+﻿@model MVC_With_MongoDb.Models.EmployesModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Employe</h2>
+
+@using (Html.BeginForm("Create","Employe",FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <table class="table table-striped">
+            <tr>
+                <td>
+                    <b>Name : </b>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.empname, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.empname, "", new { @style = "color:red" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Email : </b>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.email,"", new { @class="form-control"})
+                            @Html.ValidationMessageFor(model => model.email, "", new { @style = "color:red" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Address : </b>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.address, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.address, "", new { @style = "color:red" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Phone No : </b>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.phon, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.phon, "", new { @style = "color:red" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVC_With_MongoDb.Models.EmployesModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employe List</h2>
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            <b>Employe Name</b>
+        </th>
+        <th>
+            <b>Email</b>
+        </th>
+        <th>
+            <b>Address</b>
+        </th>
+        <th>
+            <b>Phone No</b>
+        </th>
+        <th>
+            <b>Actions</b>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.empname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phon)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item._id }, new { @class = "btn btn-success btn-xs" }) |
+            @Html.ActionLink("Details", "Details", new { id = item._id }, new { @class = "btn btn-info btn-xs" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item._id }, new { @class = "btn btn-danger btn-xs", onclick = "return confirm('Are you sure you wish to delete this Employe?');" })
+        </td>
+    </tr>
+}
+
+</table>
